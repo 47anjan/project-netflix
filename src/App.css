@@ -5,3 +5,23 @@
 * {
   font-family: "Poppins", sans-serif;
 }
+
+.layer::after {
+  content: " ";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.541),
+    #111111de
+  );
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
