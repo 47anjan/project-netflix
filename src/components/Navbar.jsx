@@ -1,10 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Search } from "react-feather";
 import { LOGO, AVATAR } from "../constants";
 
 const Navbar = () => {
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    const sectionOne = document.querySelector(".hero");
+
+    const sectionOneOptions = {
+      rootMargin: "-200px 0px 0px 0px",
+    };
+
+    const sectionOneObserver = new IntersectionObserver(function (
+      entries,
+      sectionOneObserver
+    ) {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          setActive(true);
+        } else {
+          setActive(false);
+        }
+      });
+    },
+    sectionOneOptions);
+
+    sectionOneObserver.observe(sectionOne);
+  }, [active]);
+
   return (
-    <nav className="fixed top-0 w-full z-50">
+    <nav
+      style={
+        active
+          ? { backgroundColor: "#111111b7" }
+          : { backgroundColor: "transparent" }
+      }
+      className="fixed top-0 w-full z-50"
+    >
       <div className="container mx-auto p-4 flex items-center justify-between">
         <div className="flex items-center gap-8 ">
           <div>
