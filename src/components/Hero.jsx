@@ -1,7 +1,11 @@
 import React from "react";
 import { Info, Play } from "react-feather";
+import useRandom from "../hooks/useRandom";
 
 const Hero = () => {
+  const data = useRandom();
+  console.log(data);
+
   const url =
     "https://image.tmdb.org/t/p/w1280/6Lw54zxm6BAEKJeGlabyzzR5Juu.jpg";
   const bg = {
@@ -9,7 +13,10 @@ const Hero = () => {
   };
 
   return (
-    <section style={bg} className="min-h-[85vh] layer flex items-center py-10">
+    <section
+      style={bg}
+      className="min-h-[85vh] relative layer flex items-center py-10"
+    >
       <div className="container mx-auto p-4 relative text-white z-10 ">
         <div>
           <h1 className="font-bold text-3xl md:text-5xl mb-8">

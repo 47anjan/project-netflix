@@ -6,6 +6,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+body {
+  background: #111;
+}
+
 .layer::after {
   content: " ";
   position: absolute;
@@ -14,8 +18,8 @@
   background-image: linear-gradient(
     180deg,
     transparent,
-    rgba(37, 37, 37, 0.541),
-    #111111de
+    rgba(37, 37, 37, 0.61),
+    #111
   );
 }
 

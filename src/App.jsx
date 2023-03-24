@@ -1,16 +1,32 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./App.css";
-import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
-      <Hero />
-    </div>
+      <Outlet />
+    </>
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <RouterProvider router={router} />
+);
