@@ -1,0 +1,46 @@
+id
+https://api.themoviedb.org/3/movie/829280?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US
+
+
+search
+https://api.themoviedb.org/3/search/movie?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1&query=avengers
+
+
+trending
+https://api.themoviedb.org/3/trending/all/day?api_key=f043ea02e3806fc663233f74b0323c9a
+
+popular
+https://api.themoviedb.org/3/movie/popular?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1
+
+top
+https://api.themoviedb.org/3/movie/top_rated?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1
+
+
+upcomming
+https://api.themoviedb.org/3/movie/upcoming?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1
+
+
+lettest
+https://api.themoviedb.org/3/movie/latest?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1
+
+
+similar movie
+https://api.themoviedb.org/3/movie/{movie_id}/similar?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1
+
+
+similar tv
+https://api.themoviedb.org/3/tv/{tv_id}/similar?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1
+
+
+
+image path 
+https://image.tmdb.org/t/p/w500/bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg
+https://image.tmdb.org/t/p/w780/bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg
+https://image.tmdb.org/t/p/original/bvYjhsbxOBwpm8xLE5BhdA3a8CZ.jpg
+
+
+logo
+https://netflix-clone-06.netlify.app/static/media/logo-full.b4e72c53.png
+
+avtar
+https://netflix-clone-06.netlify.app/static/media/logo.81d75165.png
