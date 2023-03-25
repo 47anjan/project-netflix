@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import MoviesCard from "./MoviesCard";
 import "swiper/css";
 
-const MovieContainer = ({ title, mediaType, catagory, page }) => {
-  const movies = useMovies(mediaType, page, catagory);
+const MovieContainer = ({ title, mediaType, catagory }) => {
+  const movies = useMovies(mediaType, "1", catagory);
   console.log(movies);
   return (
     <section>

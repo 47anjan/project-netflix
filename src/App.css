@@ -24,9 +24,51 @@ body {
   );
 }
 
+.overlay::after {
+  content: " ";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.308),
+    #181717c7
+  );
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
 .line-clamp {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.info {
+  opacity: 0;
+  transition: all 0.3s linear;
+}
+
+.card:hover .info,
+.card:hover.overlay::after {
+  opacity: 1;
+}
+
+.rating {
+  margin-left: -0.5rem;
+  padding: 1px 6px;
+  padding-right: 10px;
+  line-height: 12px;
+  font-size: 13px;
+  background: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.9);
 }

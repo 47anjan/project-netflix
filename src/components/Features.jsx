@@ -10,32 +10,27 @@ const Features = () => {
         title={"Upcoming Movies"}
         mediaType="movie"
         catagory="upcoming"
-        page="1"
       />
 
       <MovieContainer
         title={"Popular Movies"}
         mediaType="movie"
         catagory="popular"
-        page="1"
       />
       <MovieContainer
         title={"Top Rated Movies"}
         mediaType="movie"
         catagory="top_rated"
-        page="1"
       />
       <MovieContainer
         title={"Top Rated TV Series"}
         mediaType="tv"
         catagory="top_rated"
-        page="1"
       />
       <MovieContainer
         title={"Popular TV Series"}
         mediaType="tv"
         catagory="popular"
-        page="1"
       />
     </div>
   );
