@@ -1,18 +1,22 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { API_KEY } from "../constants";
 const useRandom = () => {
   const [movie, setMovie] = useState(null);
   const getData = async () => {
-    const result = await axios.get(
-      "https://api.themoviedb.org/3/tv/popular?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1"
-    );
+    try {
+      const result = await axios.get(
+        `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&page=1`
+      );
 
-    const { results } = result.data;
+      const { results } = result.data;
 
-    const index = Math.floor(Math.random() * results.length);
+      const index = Math.floor(Math.random() * results.length);
 
-    setMovie(results[index]);
+      setMovie(results[index]);
+    } catch (error) {
+      console.log(reeor.message);
+    }
   };
 
   useEffect(() => {

@@ -8,6 +8,7 @@
 
 body {
   background: #111;
+  color: white;
 }
 
 .layer::after {

@@ -4,7 +4,6 @@ import useRandom from "../hooks/useRandom";
 
 const Hero = () => {
   const data = useRandom();
-  console.log(data);
 
   const url = ` https://image.tmdb.org/t/p/original/${data?.backdrop_path}`;
   const bg = {

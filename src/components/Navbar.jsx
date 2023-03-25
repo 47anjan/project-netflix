@@ -1,40 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Search } from "react-feather";
 import { LOGO, AVATAR } from "../constants";
+import useScroll from "../hooks/useScroll";
 
 const Navbar = () => {
-  const [active, setActive] = useState(false);
-
-  useEffect(() => {
-    const sectionOne = document.querySelector(".hero");
-
-    const sectionOneOptions = {
-      rootMargin: "-200px 0px 0px 0px",
-    };
-
-    const sectionOneObserver = new IntersectionObserver(function (
-      entries,
-      sectionOneObserver
-    ) {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          setActive(true);
-        } else {
-          setActive(false);
-        }
-      });
-    },
-    sectionOneOptions);
-
-    sectionOneObserver.observe(sectionOne);
-  }, [active]);
+  const active = useScroll();
 
   return (
     <nav
       style={
         active
-          ? { backgroundColor: "#111111b7" }
-          : { backgroundColor: "transparent" }
+          ? { backgroundColor: "#000000cc", transition: "all .5s " }
+          : { backgroundColor: "transparent", transition: "all .5s " }
       }
       className="fixed top-0 w-full z-50"
     >
