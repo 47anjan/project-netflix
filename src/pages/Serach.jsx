@@ -1,0 +1,93 @@
+import React, { useState, useEffect } from "react";
+import useScrollTop from "../hooks/useScrollTop";
+import { useParams } from "react-router-dom";
+import useSearch from "../hooks/useSearch";
+import SearchCard from "../components/SearchCard";
+
+const Serach = () => {
+  useScrollTop();
+
+  const { value } = useParams();
+
+  const [search, setSerach] = useState({
+    value,
+    type: "movie",
+  });
+
+  useEffect(() => {
+    setSerach({
+      value,
+      type: "movie",
+    });
+  }, [value]);
+
+  let movies = useSearch(search);
+
+  const handleTv = () => {
+    setSerach({
+      value,
+      type: "tv",
+    });
+  };
+  const handleMovie = () => {
+    setSerach({
+      value,
+      type: "movie",
+    });
+  };
+
+  const SearchHeader = ({ value }) => {
+    return (
+      <section className="bg-white">
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl ">{value}</h1>
+          <div className="flex gap-4 items-center">
+            <button
+              onClick={handleMovie}
+              className={`border rounded-md px-2 ${
+                search.type == "movie" ? "bg-slate-300" : ""
+              }`}
+            >
+              Movies
+            </button>
+            <button
+              className={`border rounded-md px-2 ${
+                search.type == "tv" ? "bg-slate-300" : ""
+              }`}
+              onClick={handleTv}
+            >
+              TvShows
+            </button>
+          </div>
+        </div>
+      </section>
+    );
+  };
+
+  if (movies?.length === 0) {
+    return (
+      <section className="bg-white">
+        <div className="max-w-screen-lg mx-auto p-4  pt-16">
+          <SearchHeader value={"No Search Found!"} />
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <section className="bg-white">
+      <div className="max-w-screen-lg mx-auto p-4  pt-16">
+        <SearchHeader value={`Search "${value}"`} />
+        <div className="border rounded-md p-4 mt-4">
+          {movies ? (
+            movies?.map((movie) => <SearchCard key={movie?.id} movie={movie} />)
+          ) : (
+            <h1>Loading</h1>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Serach;

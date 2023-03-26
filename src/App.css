@@ -7,8 +7,8 @@
 }
 
 body {
-  background: #111;
-  color: white;
+  background: white;
+  color: #111;
 }
 
 .layer::after {
@@ -29,6 +29,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
+  border-radius: 8px;
   background-image: linear-gradient(
     180deg,
     transparent,

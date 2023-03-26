@@ -6,7 +6,7 @@ import "swiper/css";
 
 const MovieContainer = ({ title, mediaType, catagory }) => {
   const movies = useMovies(mediaType, "1", catagory);
-  console.log(movies);
+
   return (
     <section>
       <h1 className="font-semibold text-xl md:text-2xl my-4 capitalize mt-6">

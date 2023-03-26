@@ -15,7 +15,7 @@ const Hero = () => {
       {data ? (
         <section
           style={bg}
-          className="min-h-[90vh] relative layer flex items-center pt-12 pb-4"
+          className="min-h-[100vh] relative layer flex items-center pt-12 pb-4"
         >
           <div className="container mx-auto p-4 relative text-white z-10 hero">
             <div>
