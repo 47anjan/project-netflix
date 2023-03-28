@@ -3,6 +3,7 @@ import useScrollTop from "../hooks/useScrollTop";
 import { useParams } from "react-router-dom";
 import useSearch from "../hooks/useSearch";
 import SearchCard from "../components/SearchCard";
+import { ShimmerRow } from "../components/ShimmerEffect";
 
 const Serach = () => {
   useScrollTop();
@@ -82,7 +83,15 @@ const Serach = () => {
           {movies ? (
             movies?.map((movie) => <SearchCard key={movie?.id} movie={movie} />)
           ) : (
-            <h1>Loading</h1>
+            <div className="">
+              <div className="flex flex-col gap-2">
+                {Array(10)
+                  .fill("")
+                  .map((_, i) => (
+                    <ShimmerRow key={i} height={"150px"} />
+                  ))}
+              </div>
+            </div>
           )}
         </div>
       </div>

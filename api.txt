@@ -7,7 +7,7 @@ https://api.themoviedb.org/3/search/movie?api_key=f043ea02e3806fc663233f74b0323c
 
 
 trending
-https://api.themoviedb.org/3/trending/all/day?api_key=f043ea02e3806fc663233f74b0323c9a
+https://api.themoviedb.org/3/trending/all/day?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1
 
 popular
 https://api.themoviedb.org/3/movie/popular?api_key=f043ea02e3806fc663233f74b0323c9a&language=en-US&page=1

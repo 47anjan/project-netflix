@@ -1,55 +1,29 @@
 import React, { useState } from "react";
-import useMovies from "../hooks/useMovies";
+import useTrending from "../hooks/useTrending";
 import { ShimmerRow } from "../components/ShimmerEffect";
 import MediaCard from "../components/MediaCard";
 import useScrollTop from "../hooks/useScrollTop";
 import { Link } from "react-router-dom";
 
-const TvShows = () => {
+const Trending = () => {
   const [page, setPage] = useState(1);
 
-  const [catagory, setCatagory] = useState("popular");
-
-  const tvs = useMovies("tv", page, catagory);
   useScrollTop();
+  const movies = useTrending(page);
 
   const handlePageChange = (page) => {
     setPage(page);
   };
 
-  const handleCatagory = (catagory) => {
-    setCatagory(catagory);
-  };
-
   return (
     <div className="max-w-screen-lg mx-auto p-4 pt-16 ">
-      <div>
-        <div className="flex gap-4 items-center justify-end">
-          <button
-            onClick={() => handleCatagory("popular")}
-            className={`border rounded-md px-2 ${
-              catagory == "popular" ? "bg-slate-300" : ""
-            }`}
-          >
-            Popular
-          </button>
-          <button
-            onClick={() => handleCatagory("top_rated")}
-            className={`border rounded-md px-2 ${
-              catagory == "top_rated" ? "bg-slate-300" : ""
-            }`}
-          >
-            Top Rated
-          </button>
-        </div>
-      </div>
       <section className=" min-h-[75vh] border rounded-md p-4 mt-4 flex flex-col ">
-        {tvs ? (
-          tvs?.map((tv) => (
+        {movies ? (
+          movies?.map((movie) => (
             <MediaCard
-              key={tv?.id}
-              to={`/details/${{ type: "tv", id: tv?.id }}`}
-              movie={tv}
+              key={movie?.id}
+              to={`/details/${{ type: movie?.media_type, id: movie?.id }}`}
+              movie={movie}
             />
           ))
         ) : (
@@ -83,4 +57,4 @@ const TvShows = () => {
   );
 };
 
-export default TvShows;
+export default Trending;

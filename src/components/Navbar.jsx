@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Search } from "react-feather";
+import { Menu, Search } from "react-feather";
 import { Link, useNavigate } from "react-router-dom";
 import { LOGO, AVATAR } from "../constants";
 import useScroll from "../hooks/useScroll";
@@ -38,9 +38,9 @@ const Navbar = () => {
       }
       className="fixed top-0 w-full z-50"
     >
-      <div className="container mx-auto px4 flex items-center justify-between">
+      <div className="container mx-auto px-4 flex items-center justify-between">
         <div className="flex items-center gap-8 h-[60px]">
-          <div>
+          <div className="flex items-center gap-4">
             <Link to="/">
               <img className="w-[75px]" src={LOGO} alt="logo" />
             </Link>
@@ -50,16 +50,16 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#">TV Shows</a>
+              <Link to="/tv">TV Shows</Link>
             </li>
             <li>
-              <a href="#">Movies</a>
+              <Link to="/movies">Movies</Link>
             </li>
             <li>
-              <a href="#">Latest</a>
+              <Link to="/trending">Trending</Link>
             </li>
             <li>
-              <a href="#">My List</a>
+              <Link to="/mylist">My List</Link>
             </li>
           </ul>
         </div>
@@ -108,9 +108,14 @@ const Navbar = () => {
             </button>
           </form>
 
-          <a href="#">
-            <img className="w-[24px]" src={AVATAR} alt="avatar" />
-          </a>
+          <div className="flex items-center gap-2">
+            <a className="hidden md:block" href="#">
+              <img className="w-[24px]" src={AVATAR} alt="avatar" />
+            </a>
+            <div className="border rounded-md p-1 cursor-pointer hover:border-2 block md:hidden">
+              <Menu />
+            </div>
+          </div>
         </div>
       </div>
     </nav>

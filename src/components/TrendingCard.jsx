@@ -1,11 +1,11 @@
 import React from "react";
-import { IMG_PATH } from "../constants";
+import { IMG_PATH_300 } from "../constants";
 import { Star } from "react-feather";
 
 const TrendingCard = ({ movie }) => {
   return (
     <article className="h-[250px] w-[180px] rounded-md overflow-hidden cursor-pointer relative overlay card  text-white">
-      <img src={IMG_PATH + movie?.poster_path} alt="" />
+      <img src={IMG_PATH_300 + movie?.poster_path} alt="" />
       <div className="absolute z-10 bottom-0 p-2 info pb-0">
         <h2 className="text-sm mb-2 font-medium leading-4 ">
           {movie?.title ? movie?.title : movie?.name}

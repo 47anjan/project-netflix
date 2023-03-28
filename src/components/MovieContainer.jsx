@@ -3,6 +3,8 @@ import useMovies from "../hooks/useMovies";
 import { Swiper, SwiperSlide } from "swiper/react";
 import MoviesCard from "./MoviesCard";
 import "swiper/css";
+import { ShimmerRow } from "./ShimmerEffect";
+import { Link } from "react-router-dom";
 
 const MovieContainer = ({ title, mediaType, catagory }) => {
   const movies = useMovies(mediaType, "1", catagory);
@@ -36,13 +38,17 @@ const MovieContainer = ({ title, mediaType, catagory }) => {
           >
             {movies?.map((movie) => (
               <SwiperSlide key={movie?.id}>
-                <MoviesCard movie={movie} />
+                <Link to={`/details/${{ type: mediaType, id: movie?.id }}`}>
+                  <MoviesCard movie={movie} />
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>
         </div>
       ) : (
-        <h1>Loading...</h1>
+        <h1>
+          <ShimmerRow height={"150px"} />
+        </h1>
       )}
     </section>
   );

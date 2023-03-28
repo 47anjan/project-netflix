@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { API_KEY } from "../constants";
+
 const useMovies = (type, page, catagory) => {
   const [movies, setMovies] = useState(null);
   const getData = async () => {
@@ -19,7 +20,7 @@ const useMovies = (type, page, catagory) => {
 
   useEffect(() => {
     getData();
-  }, [page]);
+  }, [page, catagory]);
 
   return movies;
 };
