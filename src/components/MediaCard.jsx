@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Bookmark, Star } from "react-feather";
 import { Link } from "react-router-dom";
 import { IMG_PATH_300 } from "../constants";
 import { useContext } from "react";
 import ListContext from "../context/listContext";
 
-const MediaCard = ({ movie, to, state, isActive }) => {
+const MediaCard = ({ movie, to, state }) => {
   const { list, setList } = useContext(ListContext);
+  const [isInList, setIsInList] = useState(false);
+
+  useEffect(() => {
+    for (let i in list) {
+      if (list[i].id === movie.id) setIsInList(true);
+    }
+  }, []);
 
   const handleAdd = (item) => {
-    if (list.includes(item)) {
-      return;
-    } else {
-      setList([...list, item]);
+    setIsInList(true);
+    for (let i in list) {
+      if (list[i].id === item.id) return;
     }
+    setList([...list, item]);
   };
 
   return (
@@ -43,7 +50,7 @@ const MediaCard = ({ movie, to, state, isActive }) => {
         </div>
 
         <Bookmark
-          fill={`${isActive ? "#EFCB74" : "none"}`}
+          fill={`${isInList ? "#EFCB74" : "none"}`}
           onClick={() => handleAdd(movie)}
         />
       </div>
