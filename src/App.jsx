@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         element: <MyList />,
       },
       {
-        path: "details/:media",
+        path: "details",
         element: <Details />,
       },
     ],

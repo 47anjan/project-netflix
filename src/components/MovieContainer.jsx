@@ -38,7 +38,10 @@ const MovieContainer = ({ title, mediaType, catagory }) => {
           >
             {movies?.map((movie) => (
               <SwiperSlide key={movie?.id}>
-                <Link to={`/details/${{ type: mediaType, id: movie?.id }}`}>
+                <Link
+                  state={{ type: mediaType, id: movie?.id }}
+                  to={`/details`}
+                >
                   <MoviesCard movie={movie} />
                 </Link>
               </SwiperSlide>

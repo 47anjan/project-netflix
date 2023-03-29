@@ -49,7 +49,8 @@ export const Movies = () => {
           movies?.map((movie) => (
             <MediaCard
               key={movie?.id}
-              to={`/details/${{ type: "movie", id: movie?.id }}`}
+              state={{ type: "movie", id: movie?.id }}
+              to={`/details`}
               movie={movie}
             />
           ))

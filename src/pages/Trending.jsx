@@ -22,7 +22,8 @@ const Trending = () => {
           movies?.map((movie) => (
             <MediaCard
               key={movie?.id}
-              to={`/details/${{ type: movie?.media_type, id: movie?.id }}`}
+              state={{ type: movie?.media_type, id: movie?.id }}
+              to={`/details`}
               movie={movie}
             />
           ))

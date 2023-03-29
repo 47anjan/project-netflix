@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import useScrollTop from "../hooks/useScrollTop";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useSearch from "../hooks/useSearch";
 import SearchCard from "../components/SearchCard";
 import { ShimmerRow } from "../components/ShimmerEffect";
@@ -9,6 +9,8 @@ const Serach = () => {
   useScrollTop();
 
   const { value } = useParams();
+
+  const [type, setType] = useState("movie");
 
   const [search, setSerach] = useState({
     value,
@@ -29,12 +31,14 @@ const Serach = () => {
       value,
       type: "tv",
     });
+    setType("tv");
   };
   const handleMovie = () => {
     setSerach({
       value,
       type: "movie",
     });
+    setType("movie");
   };
 
   const SearchHeader = ({ value }) => {
@@ -81,7 +85,15 @@ const Serach = () => {
         <SearchHeader value={`Search "${value}"`} />
         <div className="border rounded-md p-4 mt-4">
           {movies ? (
-            movies?.map((movie) => <SearchCard key={movie?.id} movie={movie} />)
+            movies?.map((movie) => (
+              <Link
+                state={{ type, id: movie?.id }}
+                to="/details"
+                key={movie?.id}
+              >
+                <SearchCard movie={movie} />
+              </Link>
+            ))
           ) : (
             <div className="">
               <div className="flex flex-col gap-2">

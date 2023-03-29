@@ -30,7 +30,10 @@ const Trending = () => {
         >
           {data?.map((item) => (
             <SwiperSlide key={item?.id}>
-              <Link to={`/details/${{ type: item?.media_type, id: item?.id }}`}>
+              <Link
+                state={{ type: item?.media_type, id: item?.id }}
+                to={`/details`}
+              >
                 <TrendingCard movie={item} />
               </Link>
             </SwiperSlide>

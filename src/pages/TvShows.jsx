@@ -48,7 +48,8 @@ const TvShows = () => {
           tvs?.map((tv) => (
             <MediaCard
               key={tv?.id}
-              to={`/details/${{ type: "tv", id: tv?.id }}`}
+              state={{ type: "tv", id: tv?.id }}
+              to={`/details`}
               movie={tv}
             />
           ))

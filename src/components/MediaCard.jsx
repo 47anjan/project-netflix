@@ -5,7 +5,7 @@ import { IMG_PATH_300 } from "../constants";
 import { useContext } from "react";
 import ListContext from "../context/listContext";
 
-const MediaCard = ({ movie, to }) => {
+const MediaCard = ({ movie, to, state, isActive }) => {
   const { list, setList } = useContext(ListContext);
 
   const handleAdd = (item) => {
@@ -18,7 +18,7 @@ const MediaCard = ({ movie, to }) => {
 
   return (
     <article className="flex flex-col sm:flex-row  cursor-pointer border-b mb-3 pb-3  items-center">
-      <Link to={to} className="mr-auto w-full">
+      <Link state={state} to={to} className="mr-auto w-full">
         <div className="flex gap-2 items-center flex-col sm:flex-row ">
           {movie?.backdrop_path ? (
             <img
@@ -43,7 +43,7 @@ const MediaCard = ({ movie, to }) => {
         </div>
 
         <Bookmark
-          fill={`${list.includes(movie) ? "#EFCB74" : "none"}`}
+          fill={`${isActive ? "#EFCB74" : "none"}`}
           onClick={() => handleAdd(movie)}
         />
       </div>
