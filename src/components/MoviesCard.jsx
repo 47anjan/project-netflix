@@ -25,7 +25,7 @@ const MoviesCard = ({ movie }) => {
               className="mb-[2px]"
             />
           </span>
-          {+movie?.vote_average.toFixed(1)}
+          {+movie?.vote_average?.toFixed(1)}
         </span>
       </div>
     </article>

@@ -1,9 +1,10 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import ListItem from "../components/ListItem";
 import ListContext from "../context/listContext";
 
 const MyList = () => {
-  const { list, setList } = useContext(ListContext);
+  const { list } = useContext(ListContext);
 
   return (
     <div className="max-w-screen-lg mx-auto p-4 pt-16 ">
@@ -16,7 +17,9 @@ const MyList = () => {
           <h1 className="font-bold text-xl mb-2">Total Items: {list.length}</h1>
           <section className=" min-h-[75vh] border rounded-md p-4 mt-4 flex flex-col ">
             {list?.map((item) => (
-              <ListItem key={item?.id} movie={item} />
+              <Link key={item?.id} state={item?.state} to="/details">
+                <ListItem movie={item} />
+              </Link>
             ))}
           </section>
         </div>

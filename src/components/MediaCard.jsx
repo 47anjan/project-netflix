@@ -7,6 +7,7 @@ import ListContext from "../context/listContext";
 
 const MediaCard = ({ movie, to, state }) => {
   const { list, setList } = useContext(ListContext);
+
   const [isInList, setIsInList] = useState(false);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ const MediaCard = ({ movie, to, state }) => {
     for (let i in list) {
       if (list[i].id === item.id) return;
     }
-    setList([...list, item]);
+    setList([...list, { ...item, state }]);
   };
 
   return (

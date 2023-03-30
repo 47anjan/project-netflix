@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Info, Play } from "react-feather";
+import { Link } from "react-router-dom";
 import useRandom from "../hooks/useRandom";
 
 const Hero = () => {
@@ -26,9 +27,12 @@ const Hero = () => {
                 <button className="flex items-center gap-2 font-semibold text-black bg-white py-2 px-4 rounded-md">
                   <Play color="black" fill="black" /> Play Episode
                 </button>
-                <button className="flex items-center gap-2 font-semibold  bg-gray-400 py-2 px-4 rounded-md">
-                  <Info /> More info
-                </button>
+
+                <Link state={{ type: "tv", id: data?.id }} to={`/details`}>
+                  <button className="flex items-center gap-2 font-semibold  bg-gray-400 py-2 px-4 rounded-md">
+                    <Info /> More info
+                  </button>
+                </Link>
               </div>
               <p className="line-clamp max-w-[55ch] font-normal text-base md:text-lg">
                 {data?.overview}
