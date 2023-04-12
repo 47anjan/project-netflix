@@ -17,9 +17,7 @@ const MyList = () => {
           <h1 className="font-bold text-xl mb-2">Total Items: {list.length}</h1>
           <section className=" min-h-[75vh] border rounded-md p-4 mt-4 flex flex-col ">
             {list?.map((item) => (
-              <Link key={item?.id} state={item?.state} to="/details">
-                <ListItem movie={item} />
-              </Link>
+              <ListItem movie={item} />
             ))}
           </section>
         </div>

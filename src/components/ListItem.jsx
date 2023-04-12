@@ -14,7 +14,7 @@ const ListItem = ({ movie }) => {
 
   return (
     <>
-      <article className="flex flex-col sm:flex-row  cursor-pointer border-b mb-3 pb-3  items-center">
+      <article className="flex flex-col sm:flex-row  border-b mb-3 pb-3  items-center">
         <div className="mr-auto w-full">
           <div className="flex gap-2 items-center flex-col sm:flex-row ">
             {movie?.backdrop_path ? (
@@ -40,7 +40,10 @@ const ListItem = ({ movie }) => {
             <Star className="mb[2px]" color="#EFCB74" fill="#EFCB74" />
             {+movie?.vote_average?.toFixed(1)}
           </div>
-          <XCircle onClick={() => handleRemove(movie?.id)} />
+          <XCircle
+            className="cursor-pointer"
+            onClick={() => handleRemove(movie?.id)}
+          />
         </div>
       </article>
     </>

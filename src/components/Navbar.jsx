@@ -127,7 +127,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      <div>
+      <div className="md:hidden">
         <MobileNavbar toggle={toggle} setToggle={setToggle} />
       </div>
     </>
