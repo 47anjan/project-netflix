@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const [searchText, setSearchText] = useState("");
 
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
 
   const handleOnChange = (e) => {
     const value = e.target.value;
